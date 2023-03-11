@@ -8,14 +8,20 @@ public class Train extends Transport{
         this.priceForBedding = priceForBedding;
         this.isTrainInternational = isTrainInternational;
     }
-    public Train(){
-    }
 
-    public Train(int valueOfPassengers, String typeOfTransport, int priceForFuel, int priceForBedding,
-                 boolean isTrainInternational) {
-        super(valueOfPassengers, typeOfTransport, priceForFuel);
+    public Train(int valueOfPassengers, String typeOfTransport, int priceForFuel, int priceForFood,
+                 int priceForInternationalTrip, int priceForBedding, boolean isTrainInternational) {
+        super(valueOfPassengers, typeOfTransport, priceForFuel, priceForFood, priceForInternationalTrip);
         this.priceForBedding = priceForBedding;
         this.isTrainInternational = isTrainInternational;
+    }
+
+    public int getPriceForBedding() {
+        return priceForBedding;
+    }
+
+    public void setPriceForBedding(int priceForBedding) {
+        this.priceForBedding = priceForBedding;
     }
 
     public boolean isTrainInternational() {
@@ -25,22 +31,16 @@ public class Train extends Transport{
     public void setTrainInternational(boolean trainInternational) {
         isTrainInternational = trainInternational;
     }
-    public int getPriceForBedding() {
-        return priceForBedding;
-    }
-
-    public void setPriceForBedding(int priceForBedding) {
-        this.priceForBedding = priceForBedding;
-    }
 
     @Override
     public void countTicketPrice(Transport transport) {
         int priceForTicket;
-        priceForTicket=getPriceForBedding()+getPriceForFuel()/getValueOfPassengers();
+        priceForTicket=+getPriceForFuel()/getValueOfPassengers();
+        System.out.println(priceForTicket);
     }
 
     @Override
     public void printInf(Transport transport) {
-        System.out.println(getTypeOfTransport()+""+getValueOfPassengers());
+        System.out.println(getTypeOfTransport()+" "+getValueOfPassengers());
     }
 }

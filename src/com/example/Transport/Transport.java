@@ -6,14 +6,17 @@ public abstract class Transport {
     private int priceForFuel;
     private int priceForFood;
 
-    public  Transport(){
+    private  int priceForInternationalTrip;
+    public Transport(){
     }
 
-    public Transport(int valueOfPassengers, String typeOfTransport, int priceForFuel, int priceForFood) {
+    public Transport(int valueOfPassengers, String typeOfTransport, int priceForFuel, int priceForFood,
+                     int priceForInternationalTrip) {
         this.valueOfPassengers = valueOfPassengers;
         this.typeOfTransport = typeOfTransport;
         this.priceForFuel = priceForFuel;
         this.priceForFood = priceForFood;
+        this.priceForInternationalTrip = priceForInternationalTrip;
     }
 
     public int getValueOfPassengers() {
@@ -46,6 +49,14 @@ public abstract class Transport {
 
     public void setPriceForFood(int priceForFood) {
         this.priceForFood = priceForFood;
+    }
+
+    public int getPriceForInternationalTrip() {
+        return priceForInternationalTrip;
+    }
+
+    public void setPriceForInternationalTrip(int priceForInternationalTrip) {
+        this.priceForInternationalTrip = priceForInternationalTrip;
     }
 
     public abstract void countTicketPrice(Transport transport);

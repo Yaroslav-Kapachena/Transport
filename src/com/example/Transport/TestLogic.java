@@ -3,7 +3,9 @@ package com.example.Transport;
 public class TestLogic {
     public static void main(String[] args) {
 
-    Transport transport1 = new AirPlane(200,"Наземный",800,1200);
+    Transport transport1 = new AirPlane(250,"Наземный" , 1200,900,
+             100,"rthrthrg");
     transport1.countTicketPrice(transport1);
+    transport1.printInf(transport1);
     }
 }

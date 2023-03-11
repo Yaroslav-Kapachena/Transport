@@ -4,19 +4,16 @@ public class Bus extends Transport {
     private boolean internationalOrNo;
     private int priceForInternationalTrip;
 
-    public Bus(){
-    }
-
     public Bus(boolean internationalOrNo, int priceForInternationalTrip) {
         this.internationalOrNo = internationalOrNo;
         this.priceForInternationalTrip = priceForInternationalTrip;
     }
 
     public Bus(int valueOfPassengers, String typeOfTransport, int priceForFuel, int priceForFood,
-               boolean internationalOrNo, int priceForInternationalTrip) {
-        super(valueOfPassengers, typeOfTransport, priceForFuel, priceForFood);
+               int priceForInternationalTrip, boolean internationalOrNo, int priceForInternationalTrip1) {
+        super(valueOfPassengers, typeOfTransport, priceForFuel, priceForFood, priceForInternationalTrip);
         this.internationalOrNo = internationalOrNo;
-        this.priceForInternationalTrip = priceForInternationalTrip;
+        this.priceForInternationalTrip = priceForInternationalTrip1;
     }
 
     public boolean isInternationalOrNo() {
@@ -31,6 +28,7 @@ public class Bus extends Transport {
         return priceForInternationalTrip;
     }
 
+
     public void setPriceForInternationalTrip(int priceForInternationalTrip) {
         this.priceForInternationalTrip = priceForInternationalTrip;
     }
@@ -39,15 +37,18 @@ public class Bus extends Transport {
     public void countTicketPrice(Transport transport) {
         int priceForTicket=0;
         if(internationalOrNo==true){
-            priceForTicket = transport.getPriceForFuel()+transport.getPriceForInternationalTrip()/transport.getValueOfPassengers();
+            priceForTicket =
+                    transport.getPriceForFuel()+transport.getPriceForInternationalTrip()/transport.getValueOfPassengers();
+            System.out.println(priceForTicket);
         }
         else{
-            priceForTicket = getPriceForFuel()/getValueOfPassengers();
+            priceForTicket = transport.getPriceForFuel()/transport.getValueOfPassengers();
+            System.out.println(priceForTicket);
         }
     }
 
     @Override
     public void printInf(Transport transport) {
-        System.out.println(getValueOfPassengers()+""+getTypeOfTransport());
+        System.out.println(transport.getValueOfPassengers()+" "+transport.getTypeOfTransport());
     }
 }
