@@ -3,6 +3,8 @@ package com.example.Transport;
 public class Bus extends Transport {
     private boolean internationalOrNo;
     private int priceForInternationalTrip;
+    public Bus(){
+    }
 
     public Bus(boolean internationalOrNo, int priceForInternationalTrip) {
         this.internationalOrNo = internationalOrNo;
@@ -10,10 +12,9 @@ public class Bus extends Transport {
     }
 
     public Bus(int valueOfPassengers, String typeOfTransport, int priceForFuel, int priceForFood,
-               int priceForInternationalTrip, boolean internationalOrNo, int priceForInternationalTrip1) {
+               int priceForInternationalTrip, boolean internationalOrNo) {
         super(valueOfPassengers, typeOfTransport, priceForFuel, priceForFood, priceForInternationalTrip);
         this.internationalOrNo = internationalOrNo;
-        this.priceForInternationalTrip = priceForInternationalTrip1;
     }
 
     public boolean isInternationalOrNo() {
